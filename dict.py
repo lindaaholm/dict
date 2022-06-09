@@ -35,23 +35,25 @@ print('''Hello and welcome to the dictionary, available commands:
   list   - list all words
   quit   - quit the program
   help   - list all commands''')
+def main():
+    while True: ## REPL - Read Execute Program Loop
+        cmd = input("Command: ")
+        if cmd == "list":
+            print(read_dict(conn))
+        elif cmd == "add":
+            name = input("  Word: ")
+            phone = input("  Translation: ")
+            add_word(conn, name, phone)
+            print(f" Added word {word}")
+        elif cmd == "delete":
+            ID = input("  ID: ")
+            delete_word(conn, ID)
+            print(f"Deleted word {word}")
+        elif cmd == "quit":
+            save_dict(conn)
+            print(f"The end!")
+            exit()
 
-while True: ## REPL - Read Execute Program Loop
-    cmd = input("Command: ")
-    if cmd == "list":
-        print(read_dict(conn))
-    elif cmd == "add":
-        name = input("  Word: ")
-        phone = input("  Translation: ")
-        add_word(conn, name, phone)
-        print(f" Added word {word}")
-    elif cmd == "delete":
-        ID = input("  ID: ")
-        delete_word(conn, ID)
-        print(f"Deleted word {word}")
-    elif cmd == "quit":
-        save_dict(conn)
-        print(f"The end!")
-        exit()
+main()
         
 
