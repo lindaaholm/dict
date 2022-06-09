@@ -44,10 +44,14 @@ while True: ## REPL - Read Execute Program Loop
         name = input("  Word: ")
         phone = input("  Translation: ")
         add_word(conn, name, phone)
+        print(f" Added word {word}")
     elif cmd == "delete":
         ID = input("  ID: ")
         delete_word(conn, ID)
+        print(f"Deleted word {word}")
     elif cmd == "quit":
         save_dict(conn)
+        print(f"The end!")
         exit()
+        
 
